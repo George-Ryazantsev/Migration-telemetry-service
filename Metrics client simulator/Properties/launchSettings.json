@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Metrics client simulator": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

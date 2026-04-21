@@ -1,0 +1,6 @@
+@Migration_telemetry_service_HostAddress = http://localhost:5063
+
+GET {{Migration_telemetry_service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
