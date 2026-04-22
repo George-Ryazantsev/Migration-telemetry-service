@@ -12,12 +12,12 @@ namespace MetricsClientSimulator
             {
                 var metric = new
                 {
-                    ClientId = "client-1",
+                    ClientId = $"client-{i}",
                     EventType = i % 2 == 0 ? "migration_started" : "migration_completed",
                     Timestamp = DateTime.UtcNow
                 };
 
-                await client.PostAsJsonAsync("https://localhost:5001/api/metrics", metric);
+                await client.PostAsJsonAsync("https://localhost:7122/api/metrics", metric);
 
                 await Task.Delay(1000);
             }
