@@ -3,7 +3,7 @@ using MigrationTelemetryService.Repository;
 
 namespace MigrationTelemetryService.Services
 {
-    public class MetricsService
+    public class MetricsService : IMetricsService
     {
         private readonly IMetricsRepository _repository;
 
