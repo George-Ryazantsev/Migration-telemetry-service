@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MigrationTelemetryService.Models;
-using System.Diagnostics;
+using MigrationTelemetryService.Services;
 
 namespace MigrationTelemetryService.Controllers
 {
@@ -8,19 +8,17 @@ namespace MigrationTelemetryService.Controllers
     [Route("api/metrics")]
     public class MetricsController : Controller
     {
-        private static readonly List<MetricDto> _storage = new();
-
-        [HttpPost]
-        public IActionResult Post([FromBody] MetricDto metric)
+        private readonly IMetricsService _service;
+        public MetricsController(IMetricsService service)
         {
-            _storage.Add(metric);
-            return Ok();
+            _service = service;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] MetricDto dto)
         {
-            return Ok(_storage);
+            await _service.ProcessAsync(dto);
+            return Ok();
         }
     }
 }
