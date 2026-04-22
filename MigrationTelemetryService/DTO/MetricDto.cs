@@ -1,6 +1,6 @@
 ﻿namespace MigrationTelemetryService.Models
 {
-    public class MetricModel
+    public class MetricDto
     {
         public string ClientId { get; set; }
         public string EventType { get; set; }
