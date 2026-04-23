@@ -17,8 +17,9 @@ namespace MetricsClientSimulator
                     Timestamp = DateTime.UtcNow
                 };
 
-                await client.PostAsJsonAsync("https://localhost:7122/api/metrics", metric);
+                var response = await client.PostAsJsonAsync("https://localhost:7122/api/metrics", metric);
 
+                Console.WriteLine($"Status: {response.StatusCode}");
                 await Task.Delay(1000);
             }
         }

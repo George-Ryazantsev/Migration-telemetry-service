@@ -6,7 +6,7 @@ namespace MigrationTelemetryService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class MetricsController : Controller
+    public class MetricsController : ControllerBase
     {
         private readonly IMetricsService _metricsService;
 
@@ -22,14 +22,14 @@ namespace MigrationTelemetryService.Controllers
             return Ok();
         }
 
-        [HttpGet("{series}/{number}")]
-        public async Task<IActionResult> Post(string series, string number)
+        [HttpGet("{clientId}/{eventType}")]
+        public async Task<IActionResult> Post(string clientId, string eventType)
         {
             MetricDto metricDto = new()
             {
-                ClientId = series,
+                ClientId = clientId,
                 Timestamp = DateTime.Now,
-                EventType = number
+                EventType = eventType
             };
 
             await _metricsService.ProcessAsync(metricDto);
