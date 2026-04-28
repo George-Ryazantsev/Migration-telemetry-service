@@ -1,4 +1,6 @@
-﻿namespace MigrationTelemetryService.Models
+﻿// Ignore Spelling: dto
+
+namespace MigrationTelemetryService.Models
 {
     public class MetricDto
     {

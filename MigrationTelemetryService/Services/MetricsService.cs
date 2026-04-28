@@ -1,4 +1,6 @@
-﻿using MigrationTelemetryService.Models;
+﻿// Ignore Spelling: dto
+
+using MigrationTelemetryService.Models;
 using MigrationTelemetryService.Repository;
 
 namespace MigrationTelemetryService.Services
