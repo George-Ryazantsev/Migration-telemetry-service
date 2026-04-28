@@ -1,28 +1,17 @@
-using MigrationTelemetryService.Repository;
 using MigrationTelemetryService.Services;
-using MongoDB.Driver;
+using ServiceCloud.Extensions.Logging.File;
 
 var builder = WebApplication.CreateBuilder(args);
 
 /*// Add services to the container.
 builder.Services.AddControllersWithViews();*/
 
+builder.Logging.AddJsonFileLogger(options=> options.FilePath = "C:\\Users\\g.ryazancev\\Desktop\\Metrics\\metrics.txt");
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IMongoClient>(sp =>
-{
-    return new MongoClient("mongodb://localhost:27017");
-});
-
-builder.Services.AddSingleton(sp =>
-{
-    var client = sp.GetRequiredService<IMongoClient>();
-    return client.GetDatabase("metrics_db");
-});
-
-builder.Services.AddScoped<IMetricsRepository, MetricsRepository>();
+//builder.Services.AddScoped<IMetricsRepository, MetricsRepository>();
 builder.Services.AddScoped<IMetricsService, MetricsService>();
 
 

@@ -2,20 +2,21 @@
 
 using MigrationTelemetryService.Models;
 using MigrationTelemetryService.Repository;
+using System.Text.Json;
 
 namespace MigrationTelemetryService.Services
 {
     public class MetricsService : IMetricsService
     {
-        private readonly IMetricsRepository _repository;
+        private readonly ILogger _logger;
 
-        public MetricsService(IMetricsRepository repository)
+        public MetricsService(ILogger<MetricsService> logger)
         {
-            _repository = repository;
+            _logger = logger;
         }
 
         public async Task ProcessAsync(MetricDto dto)
-        {            
+        {
             if (string.IsNullOrWhiteSpace(dto.ClientId))
                 throw new ArgumentException("ClientId is required");
 
@@ -27,8 +28,9 @@ namespace MigrationTelemetryService.Services
                     ? DateTime.UtcNow
                     : dto.Timestamp
             };
-
-            await _repository.InsertAsync(metric);
+            
+            var json = JsonSerializer.Serialize(metric);
+            _logger.LogInformation(json);
         }
     }
 }

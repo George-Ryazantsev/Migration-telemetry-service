@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricsClientSimulator", "MetricsClientSimulator\MetricsClientSimulator.csproj", "{321C3472-9625-4944-BF78-95946908BB4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationTelemetryService", "MigrationTelemetryService\MigrationTelemetryService.csproj", "{490957E5-B758-4E44-A4B0-A8B13FD97F6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net metrics", "MigrationTelemetryService\Net metrics.csproj", "{490957E5-B758-4E44-A4B0-A8B13FD97F6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

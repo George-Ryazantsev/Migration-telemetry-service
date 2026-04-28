@@ -3,7 +3,7 @@ using MongoDB.Driver;
 
 namespace MigrationTelemetryService.Repository
 {
-    public class MetricsRepository : IMetricsRepository
+   /* public class MetricsRepository : IMetricsRepository
     {        
         private readonly IMongoCollection<Metric> _collection;
 
@@ -16,5 +16,5 @@ namespace MigrationTelemetryService.Repository
         {
             await _collection.InsertOneAsync(metric);
         }
-    }
+    }*/
 }
