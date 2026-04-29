@@ -1,0 +1,11 @@
+﻿// Ignore Spelling: dto
+
+namespace MigrationTelemetryService.Models
+{
+    public class MetricDto
+    {
+        public string ClientId { get; set; }
+        public string EventType { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+}
